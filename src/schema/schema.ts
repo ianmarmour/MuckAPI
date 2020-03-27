@@ -7,6 +7,8 @@ import Query from "./types/query.js";
 
 // Resolvers
 // import { plant } from "./resolvers/plants.js";
+import { name, soil } from "./resolvers/plant.js";
+
 import plants from "./resolvers/plants.js";
 
 const resolvers = {
@@ -14,8 +16,8 @@ const resolvers = {
     plants
   },
   Plant: {
-    name: () => {},
-    soil: () => {}
+    name,
+    soil
   }
 };
 

@@ -1,3 +1,4 @@
-const plant = () => {};
+const name = () => {};
+const soil = () => {};
 
-export default plant;
+export { name, soil };

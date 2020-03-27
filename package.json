@@ -1,0 +1,20 @@
+{
+  "name": "muckapi",
+  "version": "1.0.0",
+  "description": "MuckAPI",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "apollo-server": "^2.11.0",
+    "graphql": "^14.6.0",
+    "graphql-tag": "^2.10.3"
+  }
+}

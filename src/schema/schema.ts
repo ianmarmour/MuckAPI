@@ -7,11 +7,14 @@ import Query from "./types/query.js";
 
 // Resolvers
 // import { plant } from "./resolvers/plants.js";
-import { name, soil } from "./resolvers/plant.js";
-
-import plants from "./resolvers/plants.js";
+import { name, soil } from "./resolvers/plant";
+import { createPlant } from "./resolvers/createPlant";
+import plants from "./resolvers/plants";
 
 const resolvers = {
+  Mutation: {
+    createPlant
+  },
   Query: {
     plants
   },

@@ -1,25 +1,24 @@
 import { Context } from "../../context/context";
 
-const name = (_parent: any, args: any, context: Context, _info: any) => {
-  const params = {
+const name = async (_parent: any, args: any, context: Context, _info: any) => {
+  const getRequestParams = {
     TableName: "PLANTS_TABLE",
-    Key: { _id: args.id }
+    Key: { _id: _parent._id }
   };
 
-  const plant: any = context.db.get(params);
+  const getResponse: any = await context.db.get(getRequestParams).promise();
 
-  return plant.name;
+  return getResponse.Item.name;
 };
 
-const soil = (_parent: any, args: any, context: Context, _info: any) => {
-  const params = {
+const soil = async (_parent: any, args: any, context: Context, _info: any) => {
+  const getRequestParams = {
     TableName: "PLANTS_TABLE",
-    Key: { _id: args.id }
+    Key: { _id: _parent._id }
   };
 
-  const plant: any = context.db.get(params);
-
-  return plant.soil;
+  const getResponse: any = await context.db.get(getRequestParams).promise();
+  return getResponse.Item.soil;
 };
 
 export { name, soil };

@@ -6,9 +6,12 @@ const name = async (_parent: any, args: any, context: Context, _info: any) => {
     Key: { _id: _parent._id }
   };
 
-  const getResponse: any = await context.db.get(getRequestParams).promise();
-
-  return getResponse.Item.name;
+  try {
+    const getResponse: any = await context.db.get(getRequestParams).promise();
+    return getResponse.Item.name;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const soil = async (_parent: any, args: any, context: Context, _info: any) => {
@@ -17,8 +20,12 @@ const soil = async (_parent: any, args: any, context: Context, _info: any) => {
     Key: { _id: _parent._id }
   };
 
-  const getResponse: any = await context.db.get(getRequestParams).promise();
-  return getResponse.Item.soil;
+  try {
+    const getResponse: any = await context.db.get(getRequestParams).promise();
+    return getResponse.Item.soil;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export { name, soil };

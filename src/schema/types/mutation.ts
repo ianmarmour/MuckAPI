@@ -11,8 +11,14 @@ const typeDef = gql`
     name: String
     soil: createSoilInput
   }
+  input updatePlantInput {
+    _id: ID
+    name: String
+    soil: createSoilInput
+  }
   type Mutation {
     createPlant(plant: createPlantInput): Plant
+    updatePlant(plant: updatePlantInput): Plant
   }
 `;
 

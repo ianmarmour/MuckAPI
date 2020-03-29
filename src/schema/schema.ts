@@ -11,6 +11,7 @@ import Mutation from "./types/mutation.js";
 import { name, soil } from "./resolvers/plant";
 import { createPlant } from "./resolvers/createPlant";
 import { updatePlant } from "./resolvers/updatePlant";
+import { deletePlant } from "./resolvers/deletePlant";
 import plants from "./resolvers/plants";
 
 const createNewSchema = async () => {
@@ -20,7 +21,8 @@ const createNewSchema = async () => {
     },
     Mutation: {
       createPlant,
-      updatePlant
+      updatePlant,
+      deletePlant
     },
     Plant: {
       name,

@@ -16,9 +16,13 @@ const typeDef = gql`
     name: String
     soil: createSoilInput
   }
+  input deletePlantInput {
+    _id: ID
+  },
   type Mutation {
     createPlant(plant: createPlantInput): Plant
     updatePlant(plant: updatePlantInput): Plant
+    deletePlant(plant: deletePlantInput): Boolean
   }
 `;
 

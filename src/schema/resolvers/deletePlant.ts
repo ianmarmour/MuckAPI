@@ -9,7 +9,7 @@ const deletePlant = async (
   const deleteParams = {
     TableName: "PLANTS_TABLE",
     Key: {
-      _id: args.plant.id
+      id: args.plant.id
     }
   };
 

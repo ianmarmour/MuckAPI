@@ -1,4 +1,4 @@
-import { Context } from "../../context/context";
+import { Context } from "../../../context/context";
 import { v4 as uuidv4 } from "uuid";
 
 const createPlant = async (

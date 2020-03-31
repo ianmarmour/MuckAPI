@@ -1,4 +1,4 @@
-import { Context } from "../../context/context";
+import { Context } from "../../../context/context";
 
 const deletePlant = async (
   _parent: any,

@@ -1,4 +1,4 @@
-import { Context } from "../../context/context";
+import { Context } from "../../../context/context";
 
 const name = async (parent: any, _args: any, context: Context, _info: any) => {
   const getRequestParams = {

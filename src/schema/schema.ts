@@ -7,12 +7,12 @@ import Query from "./types/query.js";
 import Mutation from "./types/mutation.js";
 
 // Resolvers
-import { name } from "./resolvers/plant";
-import { brand, moistureLevel } from "./resolvers/soil";
-import { createPlant } from "./resolvers/createPlant";
-import { updatePlant } from "./resolvers/updatePlant";
-import { deletePlant } from "./resolvers/deletePlant";
-import plants from "./resolvers/plants";
+import { name } from "./resolvers/plant/plant";
+import { brand, moistureLevel } from "./resolvers/soil/soil";
+import { createPlant } from "./resolvers/createPlant/createPlant";
+import { updatePlant } from "./resolvers/updatePlant/updatePlant";
+import { deletePlant } from "./resolvers/deletePlant/deletePlant";
+import plants from "./resolvers/plants/plants";
 
 const createNewSchema = async () => {
   const resolvers = {

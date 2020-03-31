@@ -7,8 +7,8 @@ import Query from "./types/query.js";
 import Mutation from "./types/mutation.js";
 
 // Resolvers
-// import { plant } from "./resolvers/plants.js";
-import { name, soil } from "./resolvers/plant";
+import { name } from "./resolvers/plant";
+import { brand, moistureLevel } from "./resolvers/soil";
 import { createPlant } from "./resolvers/createPlant";
 import { updatePlant } from "./resolvers/updatePlant";
 import { deletePlant } from "./resolvers/deletePlant";
@@ -25,8 +25,11 @@ const createNewSchema = async () => {
       deletePlant
     },
     Plant: {
-      name,
-      soil
+      name
+    },
+    Soil: {
+      brand,
+      moistureLevel
     }
   };
 

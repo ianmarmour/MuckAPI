@@ -17,9 +17,7 @@ const updatePlant = async (
   };
 
   try {
-    const updateNameResponse: any = await context.db
-      .update(updateNameParams)
-      .promise();
+    await context.db.update(updateNameParams).promise();
   } catch (error) {
     console.error(error);
   }
@@ -34,9 +32,7 @@ const updatePlant = async (
   };
 
   try {
-    const updateSoilResponse: any = await context.db
-      .update(updateSoilParams)
-      .promise();
+    await context.db.update(updateSoilParams).promise();
   } catch (error) {
     console.error(error);
   }
@@ -48,7 +44,6 @@ const updatePlant = async (
 
   try {
     const getPlantResponse: any = await context.db.get(getParams).promise();
-    console.log(getPlantResponse);
     return getPlantResponse.Item;
   } catch (error) {
     console.error(error);

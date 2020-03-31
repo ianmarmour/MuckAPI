@@ -2,7 +2,7 @@ import { gql } from "apollo-server";
 
 const typeDef = gql`
   input createSoilInput {
-    _id: ID
+    id: ID
     brand: String!
     moistureLevel: Int!
   }

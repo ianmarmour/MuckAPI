@@ -14,15 +14,12 @@ const deletePlant = async (
   };
 
   try {
-    const deletePlantResponse: any = await context.db
-      .delete(deleteParams)
-      .promise();
+    await context.db.delete(deleteParams).promise();
+    return true;
   } catch (error) {
     console.error(error);
     return false;
   }
-
-  return true;
 };
 
 export { deletePlant };

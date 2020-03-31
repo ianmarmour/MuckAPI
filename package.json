@@ -1,21 +1,21 @@
 {
   "name": "muckapi",
   "version": "1.0.0",
-  "description": "MuckAPI",
+  "description": "GraphQL API Server for Muck Plan Moisture Monitoring Platform",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node ./dist/index.js",
+    "start": "npm run build && node ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ianmarmour@gmail.com",
+  "license": "BSD",
   "devDependencies": {
     "@types/node": "^12.12.31",
+    "@types/uuid": "^7.0.2",
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@types/uuid": "^7.0.2",
     "apollo-server": "^2.11.0",
     "aws-sdk": "^2.647.0",
     "graphql": "^14.6.0",

@@ -2,7 +2,7 @@ import { Context } from "../../context/context";
 
 const plants = async (
   _parent: any,
-  args: any,
+  _args: any,
   context: Context,
   _info: any
 ) => {

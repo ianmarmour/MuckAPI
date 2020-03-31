@@ -7,15 +7,17 @@ const createPlant = async (
   context: Context,
   _info: any
 ) => {
+  // Generate a UUID per Plant
   const guid = uuidv4();
 
-  const putParams = {
+  // DynamoDB Document Client Request Parameters
+  const putPlantRequestParams = {
     TableName: "PLANTS_TABLE",
     Item: {
       id: guid,
       name: args.plant.name,
       soil: {
-        _id: args.plant.soil._id,
+        id: args.plant.soil.id,
         brand: args.plant.soil.brand,
         moistureLevel: args.plant.soil.moistureLevel
       }
@@ -23,22 +25,27 @@ const createPlant = async (
   };
 
   try {
-    const putPlantResponse: any = await context.db.put(putParams).promise();
+    await context.db.put(putPlantRequestParams).promise();
   } catch (error) {
     console.error(error);
+    return {};
   }
 
-  const getParams = {
+  // DynamoDB Document Client Request Parameters
+  const getPlantRequestParams = {
     TableName: "PLANTS_TABLE",
     Key: { id: guid }
   };
 
   try {
-    const getPlantResponse: any = await context.db.get(getParams).promise();
+    const getPlantResponse: any = await context.db
+      .get(getPlantRequestParams)
+      .promise();
 
     return getPlantResponse.Item;
   } catch (error) {
     console.error(error);
+    return {};
   }
 };
 

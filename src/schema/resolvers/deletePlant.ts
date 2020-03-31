@@ -9,18 +9,20 @@ const deletePlant = async (
   const deleteParams = {
     TableName: "PLANTS_TABLE",
     Key: {
-      _id: args.plant._id
+      _id: args.plant.id
     }
   };
 
   try {
-    const deletePlantResponse: any = await context.db.delete(deleteParams).promise();
+    const deletePlantResponse: any = await context.db
+      .delete(deleteParams)
+      .promise();
   } catch (error) {
     console.error(error);
-    return false
+    return false;
   }
 
-  return true
+  return true;
 };
 
 export { deletePlant };

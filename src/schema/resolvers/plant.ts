@@ -3,7 +3,7 @@ import { Context } from "../../context/context";
 const name = async (_parent: any, args: any, context: Context, _info: any) => {
   const getRequestParams = {
     TableName: "PLANTS_TABLE",
-    Key: { _id: _parent._id }
+    Key: { id: _parent.id }
   };
 
   try {
@@ -17,7 +17,7 @@ const name = async (_parent: any, args: any, context: Context, _info: any) => {
 const soil = async (_parent: any, args: any, context: Context, _info: any) => {
   const getRequestParams = {
     TableName: "PLANTS_TABLE",
-    Key: { _id: _parent._id }
+    Key: { id: _parent.id }
   };
 
   try {

@@ -9,7 +9,7 @@ const createPlant = async (
   const putParams = {
     TableName: "PLANTS_TABLE",
     Item: {
-      _id: args.plant._id,
+      id: args.plant.id,
       name: args.plant.name,
       soil: {
         _id: args.plant.soil._id,
@@ -27,7 +27,7 @@ const createPlant = async (
 
   const getParams = {
     TableName: "PLANTS_TABLE",
-    Key: { _id: args.plant._id.toString() }
+    Key: { id: args.plant.id }
   };
 
   try {

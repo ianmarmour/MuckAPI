@@ -8,7 +8,7 @@ const updatePlant = async (
 ) => {
   const updateNameParams = {
     TableName: "PLANTS_TABLE",
-    Key: { _id: args.plant._id.toString() },
+    Key: { _id: args.plant.id.toString() },
     UpdateExpression: "set #a = :newName",
     ExpressionAttributeNames: { "#a": "name" },
     ExpressionAttributeValues: {
@@ -26,7 +26,7 @@ const updatePlant = async (
 
   const updateSoilParams = {
     TableName: "PLANTS_TABLE",
-    Key: { _id: args.plant._id.toString() },
+    Key: { _id: args.plant.id.toString() },
     UpdateExpression: "set soil = :newSoil",
     ExpressionAttributeValues: {
       ":newSoil": args.plant.soil
@@ -43,7 +43,7 @@ const updatePlant = async (
 
   const getParams = {
     TableName: "PLANTS_TABLE",
-    Key: { _id: args.plant._id.toString() }
+    Key: { _id: args.plant.id.toString() }
   };
 
   try {

@@ -7,18 +7,18 @@ const typeDef = gql`
     moistureLevel: Int!
   }
   input createPlantInput {
-    _id: ID
+    id: ID
     name: String
     soil: createSoilInput
   }
   input updatePlantInput {
-    _id: ID
+    id: ID
     name: String
     soil: createSoilInput
   }
   input deletePlantInput {
-    _id: ID
-  },
+    id: ID
+  }
   type Mutation {
     createPlant(plant: createPlantInput): Plant
     updatePlant(plant: updatePlantInput): Plant

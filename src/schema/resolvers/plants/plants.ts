@@ -19,4 +19,4 @@ const plants = async (
   }
 };
 
-export default plants;
+export { plants };

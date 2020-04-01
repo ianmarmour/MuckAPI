@@ -16,4 +16,22 @@ describe("plants", () => {
 
         AWSMock.restore('DynamoDB.DocumentClient');
     })
+
+    it("Should throw Apollo Error", async() => {
+        AWSMock.setSDKInstance(AWS);
+        AWSMock.mock('DynamoDB.DocumentClient', 'get', function (){
+            return new Promise((resolve, _reject) => { 
+                resolve(new Error("Test DDB Error"))
+            });
+        });
+        const dynamoDb = new AWS.DynamoDB.DocumentClient();
+
+        try {
+            await plants({}, {}, { db: dynamoDb }, {})
+        } catch (e) {
+            expect(e.message).toBe('Could not get plants')
+        }
+
+        AWSMock.restore('DynamoDB.DocumentClient');
+    })
 });

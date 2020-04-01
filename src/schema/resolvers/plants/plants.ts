@@ -1,4 +1,5 @@
 import { Context } from "../../../context/context";
+import { ApolloError } from "apollo-server";
 
 const plants = async (
   _parent: any,
@@ -15,6 +16,10 @@ const plants = async (
 
     return getResponse.Items;
   } catch (error) {
+    throw new ApolloError(
+      `Could not get plants`,
+      "CAN_NOT_FETCH_PLANTS"
+    )
     console.error(error);
   }
 };

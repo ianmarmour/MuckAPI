@@ -19,4 +19,6 @@ const name = async (parent: any, _args: any, context: Context, _info: any) => {
   }
 };
 
-export { name };
+const plant = { name: name } 
+
+export { plant };

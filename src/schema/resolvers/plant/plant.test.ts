@@ -1,6 +1,6 @@
 import * as AWSMock from "aws-sdk-mock";
 import * as AWS from "aws-sdk"; 
-import { name } from "./plant";
+import { plant } from "./plant";
 
 describe("name", () => {
     it("Should get name from DynamoDB Item", async() => {
@@ -12,7 +12,7 @@ describe("name", () => {
         });
         const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-        expect(await name({id: "0000"}, {}, { db: dynamoDb }, {})).toEqual("Foo")
+        expect(await plant.name({id: "0000"}, {}, { db: dynamoDb }, {})).toEqual("Foo")
 
         AWSMock.restore('DynamoDB.DocumentClient');
     })
@@ -27,7 +27,7 @@ describe("name", () => {
         const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
         try {
-            await name({id: "0000"}, {}, { db: dynamoDb }, {})
+            await plant.name({id: "0000"}, {}, { db: dynamoDb }, {})
         } catch (e) {
             expect(e.message).toBe('Could not get name for Plant using ID: 0000')
         }

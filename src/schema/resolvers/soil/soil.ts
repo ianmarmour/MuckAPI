@@ -18,4 +18,6 @@ const moistureLevel = async (
   return parent.moistureLevel;
 };
 
-export { brand, moistureLevel };
+const soil = { brand: brand, moistureLevel: moistureLevel}
+
+export { soil };

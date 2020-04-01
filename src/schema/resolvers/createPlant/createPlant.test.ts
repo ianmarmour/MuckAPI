@@ -3,7 +3,7 @@ import * as AWS from "aws-sdk";
 import { createPlant } from "./createPlant";
 
 describe("createPlant", () => {
-    it("Should return true if item sucessfully removed", async() => {
+    it("Should return plant if succesfully created", async() => {
         AWSMock.setSDKInstance(AWS);
         AWSMock.mock('DynamoDB.DocumentClient', 'put', function (){
             return new Promise((resolve, _reject) => { 

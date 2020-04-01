@@ -3,6 +3,7 @@ import { makeExecutableSchema } from "apollo-server";
 // TypeDefs
 import Plant from "./types/plant.js";
 import Soil from "./types/soil.js";
+import Sensor from "./types/sensor.js";
 import Query from "./types/query.js";
 import Mutation from "./types/mutation.js";
 
@@ -37,7 +38,7 @@ const createNewSchema = async () => {
   };
 
   return makeExecutableSchema({
-    typeDefs: [Query, Mutation, Plant, Soil],
+    typeDefs: [Query, Mutation, Plant, Soil, Sensor],
     resolvers
   });
 };

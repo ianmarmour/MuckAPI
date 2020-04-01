@@ -2,7 +2,7 @@
   "name": "muckapi",
   "version": "1.0.0",
   "description": "GraphQL API Server for Muck Plan Moisture Monitoring Platform",
-  "main": "index.js",
+  "main": "./dist/server.js",
   "scripts": {
     "build": "tsc",
     "start": "npm run build && node ./dist/index.js",

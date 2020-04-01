@@ -25,4 +25,22 @@ describe("updatePlant", () => {
 
         AWSMock.restore('DynamoDB.DocumentClient');
     })
+
+    it("Should throw Apollo Error", async() => {
+        AWSMock.setSDKInstance(AWS);
+        AWSMock.mock('DynamoDB.DocumentClient', 'get', function (){
+            return new Promise((resolve, _reject) => { 
+                resolve(new Error("Test DDB Error"))
+            });
+        });
+        const dynamoDb = new AWS.DynamoDB.DocumentClient();
+
+        try {
+            await updatePlant({}, { plant: { id: "0000", name: "testName", soil: { id: "0000", brand: "testBrand", moistureLevel: 10}}}, { db: dynamoDb }, {})
+        } catch (e) {
+            expect(e.message).toBe('Could not update Plant using ID: 0000')
+        }
+
+        AWSMock.restore('DynamoDB.DocumentClient');
+    })
 });

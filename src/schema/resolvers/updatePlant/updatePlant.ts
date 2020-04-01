@@ -1,4 +1,5 @@
 import { Context } from "../../../context/context";
+import { ApolloError } from "apollo-server";
 
 const updatePlant = async (
   _parent: any,
@@ -19,6 +20,10 @@ const updatePlant = async (
   try {
     await context.db.update(updateNameParams).promise();
   } catch (error) {
+    throw new ApolloError(
+      `Could not update Plant using ID: ${args.plant.id}`,
+      "CAN_NOT_UPDATE_PLANT_BY_ID"
+    )
     console.error(error);
   }
 
@@ -34,6 +39,10 @@ const updatePlant = async (
   try {
     await context.db.update(updateSoilParams).promise();
   } catch (error) {
+    throw new ApolloError(
+      `Could not update Soil using Plant ID: ${args.plant.id}`,
+      "CAN_NOT_UPDATE_SOIL_BY_PLANT_ID"
+    )
     console.error(error);
   }
 

@@ -12,8 +12,8 @@ const name = async (parent: any, _args: any, context: Context, _info: any) => {
       return getResponse.Item.name;
     } catch (error) {
       throw new ApolloError(
-        `Could not get name for Plant using ID: ${parent.id}`,
-        "CAN_NOT_FETCH_PLANT_BY_ID"
+        `Could not get name for Sensor using ID: ${parent.id}`,
+        "CAN_NOT_FETCH_SENSOR_BY_ID"
       )
       console.error(error);
     }
@@ -30,8 +30,8 @@ const batteryLife = async (parent: any, _args: any, context: Context, _info: any
       return getResponse.Item.batteryLife;
     } catch (error) {
       throw new ApolloError(
-        `Could not get name for Plant using ID: ${parent.id}`,
-        "CAN_NOT_FETCH_PLANT_BY_ID"
+        `Could not get name for Sensor using ID: ${parent.id}`,
+        "CAN_NOT_FETCH_SENSOR_BY_ID"
       )
       console.error(error);
     }
